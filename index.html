@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quer casar comigo?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #mensagem {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #coracao {
+      font-size: 36px;
+      color: purple;
+      margin-top: 20px;
+    }
+    #emoji {
+      width: 24px; 
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    #imagem-casal {
+      display: none;
+      max-width: 80%;
+      margin: 20px auto;
+    }
+    .botao {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      transition: background-color 0.3s;
+    }
+    .botao:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div id="mensagem">
+    Quer casar comigo?
+    <div id="coracao">&#10084;</div>
+  </div>
+  <button class="botao" id="sim" onclick="responder('sim')">Sim</button>
+  <button class="botao" id="nao" onclick="responder('nao')">Não</button>
+
+  <img src="https://i.ibb.co/X8WZrtK/Whats-App-Image-2024-06-26-at-20-55-49.jpg" alt="Foto do Casal" id="imagem-casal">
+
+  <script>
+    function responder(resposta) {
+      if (resposta === 'sim') {
+        var mensagem = document.getElementById('mensagem');
+        var coracao = document.getElementById('coracao');
+        var simButton = document.getElementById('sim');
+        var naoButton = document.getElementById('nao');
+        var imagemCasal = document.getElementById('imagem-casal');
+
+        mensagem.innerHTML = 'Você é o amor da minha vida! <img src="https://images.emojiterra.com/google/android-12l/512px/1f979.png" alt="Emoji" id="emoji">';
+        coracao.style.display = 'none';
+        simButton.style.display = 'none';
+        naoButton.style.display = 'none';
+        imagemCasal.style.display = 'inline-block';
+      } else if (resposta === 'nao') {
+        var naoButton = document.getElementById('nao');
+        var rect = naoButton.getBoundingClientRect();
+        var newX = rect.left + 20;
+        var newY = rect.top + 20;
+        naoButton.style.position = 'absolute';
+        naoButton.style.left = newX + 'px';
+        naoButton.style.top = newY + 'px';
+      }
+    }
+  </script>
+</body>
+</html>
+
+
